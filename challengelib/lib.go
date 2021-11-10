@@ -15,7 +15,7 @@ func Run(first int, end int) {
 	}
 
 MAIN_LOOP:
-	for dividend := first; dividend < end+1; dividend++ {
+	for dividend := first; dividend <= end; dividend++ {
 		if message, ok := GetMessage(dividend, data); ok {
 			fmt.Println(message)
 			continue MAIN_LOOP
