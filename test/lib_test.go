@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"testing"
 
-	c "linio/challengelib"
-	util "linio/util"
+	c "github.com/garciaolais/challenge-backend/challengelib"
+	util "github.com/garciaolais/challenge-backend/util"
 
 	"github.com/stretchr/testify/assert"
 )

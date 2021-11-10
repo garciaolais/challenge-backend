@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"linio/challengelib"
-	"linio/version"
 	"log"
 	"os"
+
+	"github.com/garciaolais/challenge-backend/challengelib"
+	"github.com/garciaolais/challenge-backend/version"
 )
 
 func main() {
