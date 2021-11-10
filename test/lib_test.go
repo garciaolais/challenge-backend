@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestDvideByThree(t *testing.T) {
+func TestDivideByThree(t *testing.T) {
 	data := []c.Data{
 		{Divisor: 15, Message: "Linianos"},
 		{Divisor: 3, Message: "Linio"},
@@ -25,7 +25,7 @@ func TestDvideByThree(t *testing.T) {
 	}
 }
 
-func TestDvideByFive(t *testing.T) {
+func TestDivideByFive(t *testing.T) {
 	data := []c.Data{
 		{Divisor: 15, Message: "Linianos"},
 		{Divisor: 3, Message: "Linio"},
@@ -40,7 +40,7 @@ func TestDvideByFive(t *testing.T) {
 	}
 }
 
-func TestDvideByFiveAndThree(t *testing.T) {
+func TestDivideByFiveOrThree(t *testing.T) {
 	data := []c.Data{
 		{Divisor: 15, Message: "Linianos"},
 		{Divisor: 3, Message: "Linio"},
@@ -75,5 +75,24 @@ func TestRun(t *testing.T) {
 			resultActual := strconv.Itoa(i + 1)
 			assert.Equalf(t, result, resultActual, "Expected [%s]", result)
 		}
+	}
+}
+
+func TestGetOnlyInts(t *testing.T) {
+	data := []c.Data{
+		{Divisor: 15, Message: "Linianos"},
+		{Divisor: 3, Message: "Linio"},
+		{Divisor: 5, Message: "IT"},
+	}
+
+	results, err := util.ReadLines("results-int.txt")
+	assert.NoError(t, err, "Expected no error")
+
+	for _, result := range results {
+		ressultExpected, err := strconv.Atoi(result)
+		assert.NoError(t, err, "Expected no error")
+		message, ok := c.GetMessage(ressultExpected, data)
+		assert.False(t, ok, "Expected false")
+		assert.Equal(t, "", message, "Expected empty string")
 	}
 }
