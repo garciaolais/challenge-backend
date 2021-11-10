@@ -25,18 +25,18 @@ func realMain() int {
 		return 0
 	}
 
-	if *firstPtr < 0 {
-		log.Fatalf("-first [%d] can't be negative", *firstPtr)
+	if *firstPtr < 1 {
+		log.Fatalf("-first [%d] can't be negative or zero", *firstPtr)
 		return 1
 	}
 
-	if *lastPtr < 0 {
-		log.Fatalf("-last [%d] can't be negative", *lastPtr)
+	if *lastPtr < 1 {
+		log.Fatalf("-last [%d] can't be negative or zero", *lastPtr)
 		return 1
 	}
 
 	if *firstPtr > *lastPtr {
-		log.Fatalf("-firstPtr [%d] can't be grater than -last [%d]", *firstPtr, *lastPtr)
+		log.Fatalf("-firstPtr [%d] can't be greater than -last [%d]", *firstPtr, *lastPtr)
 		return 1
 	}
 
